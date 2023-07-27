@@ -165,7 +165,7 @@ const controller = {
             service: 'Gmail',
             auth:{
                 user: "rinzai_terrado@dlsu.edu.ph",
-                pass: "Bigboi!123"
+                pass: ""
             }
         });
         //check if email is in database
