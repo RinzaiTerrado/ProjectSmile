@@ -1,0 +1,71 @@
+#profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-right: 320px;
+}
+
+#profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+#file-input {
+    display: none;
+}
+
+#edit-button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+#Permissions {
+    font-size: 30px;
+}
+
+.delete-button {
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    padding: 2px 8px;
+    margin-left: 1000px;
+  }
+
+.patients-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+.button-container {
+    text-align: center;
+  }
+  
+  .cancel-button {
+    display: inline-block;
+    background-color: white;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 800px;
+  }
+  
+  .save-button {
+    display: inline-block;
+    background-color: #B0E0E6; /* Baby blue */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  

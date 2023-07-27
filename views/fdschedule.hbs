@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Frontdesk Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style-fdappoint.css">
+    <link rel="stylesheet" href="/css/schedule.css">
+     <!-----Icon------>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+
+  <body>
+    {{>fdnav}}
+    {{>fdsideappoint}}
+
+      {{#if appointment}}
+      <div class="wrapper">
+        <h3>Patient APPN {{appointment.id}}</h3>
+      <form action="/fdVerify" method="POST">
+      
+    <input type="hidden" name="id" value="{{appointment.id}}">
+        <div class="input-box">
+        <div class="name">
+          <input type="text" id="name" name="name"  value="{{appointment.fullName}}">
+        </div>
+        <div class="age">
+          <input type="email" id="email" name="email"  value="{{appointment.email}}">
+        </div>
+        <div class="birthdate">
+            <input type="text" id="mobileNumber" name="mobileNumber"  value="{{appointment.mobileNumber}}">
+        </div>
+        <div class="email">
+            <input type="text" id="dentist" name="dentist"  value="{{appointment.dentist}}">
+        </div>
+        <div class="number">
+            <input type="text" id="service" name="service"  value="{{appointment.service}}">
+        </div>
+        <div class="hmo">
+            <input type="text" id="date" name="date"  value="{{appointment.date}}">
+        </div>
+        <div class="procedure">
+            <input type="text" id="time" name="time"  value="{{appointment.time}}" >
+        </div>
+  
+        <div class="form-group">
+          <input type="submit" class="login-button" value="Confirm">
+        </div>
+  
+       </div>
+      </form>
+      
+            {{else}}
+              <div> No Appointments scheduled</div>
+            {{/if}}
+     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      
+        </body>
+        </html>

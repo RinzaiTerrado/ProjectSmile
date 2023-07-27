@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif; 
+}
+
+.arrow { 
+    position: absolute;
+    font-size: 30px;
+    color: #000000;
+    padding: 10px 10px 0;
+
+}
+
+.info {
+    margin-top: -50px;
+}
+
+.next {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.schedule h2{
+   margin: 0px 50px 0px;
+   padding: 10px 0 10px;
+}
+
+.schedule {
+    background-color: #d4d4d4;
+    width: 100%;
+    height: 60px;
+    max-width: 1050px;
+    margin: 40px 0px;
+    margin-left: 0px;
+    border-radius: 10px;
+}
+.wrapper {
+    width: 100%;
+    max-width: 1050px;
+    height: 510px;
+    background: rgb(255, 255, 255);
+    border: 2px solid rgba(17, 17, 17, 0.2);
+    color: rgb(78, 73, 73);
+    border-radius: 2px;
+    padding: 30px 40px;
+    margin-top: -45px;
+    margin-left: 0px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.records {
+    position: absolute;
+    width: 100%;
+    max-width: 950px;
+    margin-left: -350px;
+    margin-top: 40px;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+
+.wrapper h3 {
+    position: absolute;
+    font-size: 20px;
+    color: black;
+    font-weight: 500;
+    margin: -350px 180px 0 -500px;
+}
+
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin: 140px 0 20px;
+}
+
+.input-box .name {
+    width: 375px;
+    margin: -110px 0 0 -10px;
+    margin-left: -340px;
+    padding: 5px 0 0px 0;
+    float: left;
+}
+
+.input-box .age {
+    position: absolute;
+    width: 120px;
+    margin: -110px 0 0 70px;
+    padding: 5px 0 0px 0;
+    float: left;
+}
+
+.input-box .birthdate {
+    width: 350px;
+    margin: -110px 0 0 180px;
+    margin-right: -340px;
+    padding: 5px 0 0px 0;
+    float: right;
+}
+
+.input-box .email {
+    width: 375px;
+    margin: -40px 0 0 -10px;
+    margin-left: -340px;
+    padding: 5px 0 0px 0;
+    float: left;
+}
+
+.input-box .number {
+    position: absolute;
+    margin: -40px 0 0 45px;
+    padding: 5px 0 0px 0;
+    float: left;
+}
+
+.input-box .hmo {
+    width: 300px;
+    margin: -40px 0 0 50px;
+    margin-right: -340px;
+    padding: 5px 0 0px 0;
+    float: right;
+}
+
+.input-box .procedure {
+    width: 350px;
+    margin: 30px 0 0 -10px;
+    margin-left: -350px;
+    padding: 5px 0 0px 0;
+    float: left;
+}
+
+.input-box .date {
+    position: absolute;
+    margin: 30px 0 0 45px;
+    padding: 5px 0 0px 0;
+    float: left;
+}
+
+.input-box .time {
+    width: 300px;
+    margin: 30px 0 0 50px;
+    margin-right: -350px;
+    padding: 5px 0 0px 0;
+    float: right;
+}
+
+.input-box input {
+   width: 100%;
+   height: 100%;
+   background: rgb(197, 197, 197);
+   border: none;
+   outline: none;
+   border-radius: 2px;
+   font-size: 16px;
+   color: rgb(8, 8, 8);
+   padding: 10px 45px 10px 20px;
+}
+
+.input-box input::placeholder {
+    color: rgb(0, 0, 0);
+}
+
+.form-group input[type="submit"] {
+    width: 95%;
+    height: 45px;
+    margin: 260px 0 15px;
+    font-size: 16px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    background-color: #000000;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: 'Montserrat', Arial, sans-serif; 
+    padding: 10px 10px;
+}
+  
+.form-group input[type="submit"]:hover {
+    background-color: #464646;
+}
+
+.wrapper .login-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14.5px;
+    margin: 0px 0 15px;
+    color: #000000;
+}
+
+.login-links a {
+    text-decoration: none;
+    color: inherit; 
+    font-family: 'Montserrat', Arial, sans-serif; 
+    font-weight: 500;
+    
+}
+

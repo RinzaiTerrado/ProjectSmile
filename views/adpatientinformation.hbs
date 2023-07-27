@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/patient_info.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  </head>
+
+  <body>
+    {{>adminnav}}
+    
+    {{>adsidepatient}}
+
+    <div class="content">
+      <div class="container mt-4">
+        <div class="row">
+          <div class="col-md-6">
+            <h3></h3>
+          </div><br>
+          <div class="col-md-6">
+            
+      </div>
+    </div>
+    <div class="info">
+    <div class="schedule"> 
+      <div class="arrow">
+      <a href=""><i class='bx bx-chevron-left'></i></a></div> 
+     <h2>Patient Information</h2>
+  </div>      
+  
+  
+    <div class="wrapper">
+    <form >
+      <div class="input-box">
+      <div class="name">
+        <input type="text" id="name" name="name" required value="{{appointment.[0].fullName}}" placeholder="Full name">
+      </div>
+      <div class="birthdate">
+          <input type="text" id="mobileNumber" name="mobileNumber" required value="{{appointment.[0].mobileNumber}}" placeholder="Contact">
+      </div>
+      <div class="email">
+          <input type="email" id="email" name="email" required value="{{appointment.[0].email}}" placeholder="Email">
+      </div>
+    </div>
+      <div class="records">
+      <h4>Appointment History</h4>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>APPN</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Procedure</th>
+            <th>Assigned Doctor</th>
+            <th>Contact Number</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#if appointment}}
+              {{#each appointment}}
+                  {{>patientHistorylist}}
+              {{/each}}
+            {{else}}
+              <div> No Appointments scheduled</div>
+            {{/if}}
+        </tbody>
+      </table>
+    </div>
+
+      <div class="form-group">
+      </div>
+
+     
+    </form>
+   </div>
+  </div>
+   
+   <div class="next">
+   <nav aria-label="Table pager">
+    <ul class="pagination justify-content-end">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true"
+          >Previous</a
+        >
+      </li>
+      <li class="page-item active">
+        <a class="page-link" href="#">1</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+

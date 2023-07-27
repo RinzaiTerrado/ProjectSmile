@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/profile pic.css">
+  </head>
+
+  <body>
+    {{>adminnav}}
+    {{>adsideadmin}}
+
+    <div class="content">
+        <div class="container mt-4">
+          <div class="row">
+            <div class="col-md-6">
+              <h3>Add User Account</h3>
+            </div>
+          </div>
+            <form  method="POST" action="/adAdd">
+                
+          <div class="row">
+            <div class="col-md-6">
+              <!-- Container for the profile picture and button -->
+              <div id="profile-container">
+                <!-- Display the current profile picture -->
+                <img id="profile-picture" src="profile.jpg">
+      
+                <!-- Input field to select a new profile picture -->
+                <input type="file" id="file-input" accept="image/*">
+      
+                <!-- Button to trigger file selection -->
+                <button id="edit-button">Edit</button>
+              </div>
+            </div>
+    
+            <!-- Add two columns for the textboxes -->
+            <div class="col-md-6">
+                <div id="user-details">
+              <div class="row">
+                
+                <div class="col-md-6">
+                    Name
+                  <input type="text" placeholder="Name" name="fullName" required>
+                </div>
+                <div class="col-md-6">
+                    Email
+                  <input type="text" placeholder="example@example.com" name="email" required>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-md-6">
+                    Username
+                  <input type="text" placeholder="Username" name="username" required>
+                </div>
+                <div class="col-md-6">
+                    Contact Number
+                  <input type="text" placeholder="+639..." name="mobileNumber" required>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-md-6">
+                    Account Role <br>
+                    <select name ="userType">
+                        <option value="Admin">Admin </option>
+                        <option value="Frontdesk">Frontdesk</option>
+                        
+                      </select>
+                </div>
+                <div class="col-md-6">
+                    Password
+                  <input type="password" placeholder="Password" name="password" required>
+                </div>
+              </div>
+            </div>
+          </div>          
+        </div>
+    
+
+        <div class="button-container">
+            <button class="cancel-button"><a href="/adManage">Cancel</a></button>
+            <button class="save-button">Add</button>
+          </div>
+
+            </form>
+          <br><br><br>
+      <!--do not touch-->
+    </div>
+      </div>
+      </body>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="javascript/profile image.js"></script>
+  </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Frontdesk Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style-fdappoint.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+
+  <body>
+    {{>fdnav}}
+    {{>fdsidepatient}}
+    <div class="content">
+      <div class="container mt-4">
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Patient Appointment History</h3>
+          </div><br>
+          <div class="col-md-6">
+            <form class="form-inline float-right">
+              <div class="input-group">
+   
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <br>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Name</th>
+              <th>APPN</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Dentist</th>
+              <th>Procedure</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John Doe</td>
+              <td>01</td>
+              <td>06/06/06</td>
+              <td>10:00 AM</td>
+              <td>DDS. Agurin</td>
+              <td>Orthodontics</td>
+              <td><a href="/fdPatientInfo">See Full Details</a></td>
+            </tr>
+            <tr>
+              <td>Jane Smith</td>
+              <td>02</td>
+              <td>06/06/06</td>
+              <td>10:00 AM</td>
+              <td>DDS. Agurin</td>
+              <td>Orthodontics</td>
+              <td><a href="/fdPatientInfo">See Full Details</a></td>
+            </tr>
+            <tr>
+              <td>Michael Johnson</td>
+              <td>03</td>
+              <td>06/06/06</td>
+              <td>10:00 AM</td>
+              <td>DDS. Agurin</td>
+              <td>Dental Implants</td>
+              <td><a href="/fdPatientInfo">See Full Details</a></td>
+            </tr>
+            <tr>
+              <td>Sarah Williams</td>
+              <td>04</td>
+              <td>06/06/06</td>
+              <td>10:00 AM</td>
+              <td>DDS. Agurin</td>
+              <td>Root Canal</td>
+              <td><a href="/fdPatientInfo">See Full Details</a></td>
+            </tr>
+            <tr>
+              <td>Robert Davis</td>
+              <td>05</td>
+              <td>06/06/06</td>
+              <td>2:00 PM</td>
+              <td>DDS. Agurin</td>
+              <td>Teeth Whitening</td>
+              <td><a href="/fdPatientInfo">See Full Details</a></td>
+            </tr>
+            <tr>
+              <td>Linda Taylor</td>
+              <td>06</td>
+              <td>06/06/06</td>
+              <td>2:00 PM </td>
+              <td>DDS. Agurin</td>
+              <td>Braces</td>
+              <td><a href="/fdPatientInfo">See Full Details</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <nav aria-label="Table pager">
+          <ul class="pagination justify-content-end">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true"
+                >Previous</a
+              >
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

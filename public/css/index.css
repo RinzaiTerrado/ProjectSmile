@@ -1,0 +1,601 @@
+.background-icon {
+  position: absolute;
+  top: calc(50% - 309px);
+  left: calc(50% - 335px);
+  width: 983px;
+  height: 740px;
+  object-fit: cover;
+}
+
+
+.box-item {
+  background:#ebebeb;
+  color:rgb(0, 0, 0);
+  position:sticky;
+  background-color: var(--color-gainsboro-100);
+  top:2;
+  width:96.7%;
+  left: 2px;
+  padding:25px 25px;
+  border-radius:35px 35px 0px 0px;
+  height: 65px;
+}
+
+.box-inner {
+  position: center;
+  top: 58.5px;
+  left: 2px;
+  border-right: 5px solid var(--color-gainsboro-100);
+  box-sizing: border-box;
+  width: 4px;
+  height: 753px;
+}
+.line-div,
+.line-icon {
+  position: absolute;
+  top: 77.99px;
+  left: 1479px;
+  width: 5px;
+  height: 732.01px;
+}
+.line-div {
+  top: 808.5px;
+  left: 1.5px;
+  border-top: 3px solid var(--color-gainsboro-100);
+  box-sizing: border-box;
+  width: 1483px;
+  height: 3px;
+}
+.chevron-child {
+  position: relative;
+  width: 14px;
+  height: 14px;
+}
+.chevron {
+  position: absolute;
+  top: 33px;
+  left: 39px;
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.box,
+.patient-information {
+  position: absolute;
+  top: 20px;
+  left: 96px;
+}
+.box {
+  top: 178px;
+  left: 374px;
+  width: 1484px;
+  height: 828px;
+}
+.patients-personal-informations1 {
+  position: absolute;
+  top: 26px;
+  left: 35px;
+  font-size: 32px;
+}
+.name-child {
+  position: absolute;
+  top: 31px;
+  left: 7px;
+  background-color: var(--color-gainsboro-100);
+  width: 537px;
+  height: 49px;
+}
+.toni-fowler {
+  position: absolute;
+  top: 39px;
+  left: 183px;
+  font-size: var(--font-size-5xl);
+}
+.name {
+  top: 93px;
+  left: 50px;
+  width: 544px;
+  height: 80px;
+}
+.age-child,
+.div,
+.name {
+  position: absolute;
+}
+.age-child {
+  top: 31px;
+  left: 5px;
+  background-color: var(--color-gainsboro-100);
+  width: 233px;
+  height: 49px;
+}
+.div {
+  top: 41px;
+  left: 98px;
+  font-size: var(--font-size-5xl);
+}
+.age,
+.birthdate-child {
+  position: absolute;
+  top: 93px;
+  left: 640px;
+  width: 238px;
+  height: 80px;
+}
+.birthdate-child {
+  top: 31px;
+  left: 8px;
+  background-color: var(--color-gainsboro-100);
+  width: 487px;
+  height: 49px;
+}
+.june-19-1993 {
+  position: absolute;
+  top: 39px;
+  left: 152px;
+  font-size: var(--font-size-5xl);
+}
+.birthdate,
+.email-child {
+  position: absolute;
+  top: 93px;
+  left: 923px;
+  width: 495px;
+  height: 80px;
+}
+.email-child {
+  top: 30px;
+  left: 9px;
+  background-color: var(--color-gainsboro-100);
+  width: 537px;
+  height: 49px;
+}
+.t1 {
+  text-decoration: underline;
+}
+.t {
+  color: inherit;
+}
+.tonifowlergmailcom {
+  position: absolute;
+  top: 38px;
+  left: 127px;
+  font-size: var(--font-size-5xl);
+  color: inherit;
+}
+.email {
+  position: absolute;
+  top: 192px;
+  left: 49px;
+  width: 546px;
+  height: 79px;
+}
+.contact-number-child {
+  position: absolute;
+  top: 30px;
+  left: 11px;
+  background-color: var(--color-gainsboro-100);
+  width: 361px;
+  height: 49px;
+}
+.div1 {
+  position: absolute;
+  top: 40px;
+  left: 71px;
+  font-size: var(--font-size-5xl);
+  display: inline-block;
+  width: 218px;
+  height: 29px;
+}
+.contact-number {
+  position: absolute;
+  top: 192px;
+  left: 617px;
+  width: 372px;
+  height: 79px;
+}
+.assigned {
+  width: 70%;
+  height: 20px;
+  width: 365px;
+  padding: 15px;
+  margin-top: 175px;
+  margin-left: 1020px;
+  font-size: 20px;
+}
+.assignaed-doctors{
+  position: absolute;
+  top: 192px;
+  left: 1015px;
+  width: 374px;
+  height: 79px;
+}
+.assignaed-doctors {
+  width: 70%;
+  height: 20px;
+  width: 365px;
+  padding: 15px;
+  margin-top: 30px;
+  margin-left: 5px;
+  font-size: 20px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  background-color: var(--color-gainsboro-100);
+  border: none;
+}
+
+
+.frame-child,
+.procedure-latest {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.frame-child {
+  background-color: var(--color-gainsboro-100);
+  width: 537px;
+  height: 49px;
+}
+.cosmetic-dentistry- {
+  position: absolute;
+  top: 7px;
+  left: 15px;
+}
+.rectangle-parent {
+  position: absolute;
+  top: 30px;
+  left: 8px;
+  width: 537px;
+  height: 49px;
+  overflow: hidden;
+  font-size: var(--font-size-5xl);
+}
+.procedure {
+  position: absolute;
+  top: 295px;
+  left: 49px;
+  width: 545px;
+  height: 79px;
+}
+
+
+.contact-number-item {
+  position: absolute;
+  top: 30px;
+  left: 11.18px;
+  background-color: var(--color-gainsboro-100);
+  width: 366.82px;
+  height: 49px;
+}
+.contact-number3,
+.div2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 170.71px;
+}
+.div2 {
+  top: 41px;
+  left: 82px;
+  font-size: var(--font-size-5xl);
+  width: 218px;
+  height: 29px;
+}
+.contact-number2,
+.delete-child {
+  position: absolute;
+  top: 245px;
+  left: 1039px;
+  width: 378px;
+  height: 79px;
+}
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: rgb(215, 216, 236);
+  size: 25px;
+}
+
+.delete1,
+.icon-trash {
+  position: absolute;
+  top: 9px;
+  left: 45px;
+}
+.icon-trash {
+  height: 36.36%;
+  width: 8.81%;
+  top: 26.03%;
+  right: 73.83%;
+  bottom: 31.61%;
+  left: 17.36%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.delete {
+  position: absolute;
+  top: 30px;
+  left: 1280px;
+  width: 144px;
+  height: 55px;
+  font-size: 27px;
+  border: none;
+  border-radius: 5px 5px 5px 5px;
+  
+}
+
+.appointment-history1 {
+  position: absolute;
+  top: 411px;
+  left: 50px;
+}
+.appointment-history-inner,
+.appointment-history-item {
+  position: absolute;
+  left: 50px;
+  background-color: var(--color-gainsboro-100);
+  width: 1360px;
+}
+.appointment-history-item {
+  top: 454px;
+  border-radius: var(--br-11xl);
+  height: 44px;
+}
+.appointment-history-inner {
+  top: 476px;
+  height: 35px;
+}
+.appointment-history-child1 {
+  position: absolute;
+  top: 509.5px;
+  left: 48.5px;
+  border-right: 3px solid var(--color-gainsboro-100);
+  box-sizing: border-box;
+  width: 3px;
+  height: 190px;
+}
+.appointment-history-child2,
+.appointment-history-child3,
+.appointment-history-child4,
+.appointment-history-child5,
+.appointment-history-child6 {
+  position: absolute;
+  top: 509.5px;
+  left: 298.5px;
+  border-right: 3px solid var(--color-gainsboro-100);
+  box-sizing: border-box;
+  width: 3px;
+  height: 190px;
+}
+.appointment-history-child3,
+.appointment-history-child4,
+.appointment-history-child5,
+.appointment-history-child6 {
+  left: 449.5px;
+}
+.appointment-history-child4,
+.appointment-history-child5,
+.appointment-history-child6 {
+  left: 876.5px;
+}
+.appointment-history-child5,
+.appointment-history-child6 {
+  left: 1182.5px;
+}
+.appointment-history-child6 {
+  left: 1405.5px;
+}
+.date,
+.time {
+  position: absolute;
+  top: 470px;
+  left: 144px;
+  font-size: 25px;
+}
+.time {
+  left: 356px;
+  font-size: 25px;
+}
+.assigned-doctor,
+.contact-number4,
+.procedure1 {
+  position: absolute;
+  top: 468px;
+  left: 451px;
+  display: inline-block;
+  width: 427px;
+  font-size: 25px;
+}
+.assigned-doctor,
+.contact-number4 {
+  top: 470px;
+  left: 878px;
+  width: 306px;
+  font-size: 25px;
+  font-size: 25px;
+}
+.contact-number4 {
+  left: 1184px;
+  width: 226px;
+  font-size: 25px;
+}
+.p {
+  margin: 0;
+  font-size: 25px;
+}
+.cd-porcelain-container,
+.div3,
+.dr-alyssa-linda-container {
+  position: absolute;
+  top: 529px;
+  left: 1212px;
+  display: inline-block;
+  width: 162px;
+  height: 169px;
+}
+.cd-porcelain-container,
+.dr-alyssa-linda-container {
+  left: 878px;
+  width: 306px;
+}
+.cd-porcelain-container {
+  left: 451px;
+  width: 427px;
+}
+.appointment-history-child7,
+.appointment-history-child8,
+.appointment-history-child9 {
+  position: absolute;
+  top: 580px;
+  left: 48.5px;
+  border-top: 1px solid var(--color-gainsboro-100);
+  box-sizing: border-box;
+  width: 1359.01px;
+  height: 1px;
+}
+.appointment-history-child8,
+.appointment-history-child9 {
+  top: 640.5px;
+}
+.appointment-history-child9 {
+  top: 696.5px;
+  left: 51.5px;
+  border-top: 3px solid var(--color-gainsboro-100);
+  width: 1361.01px;
+  height: 3px;
+}
+.am-130-pm-container,
+.div4 {
+  position: absolute;
+  top: 529px;
+  left: 300px;
+  display: inline-block;
+  width: 148px;
+  height: 169px;
+}
+.div4 {
+  left: 49px;
+  width: 251px;
+}
+.appointment-history,
+.uploads-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1478px;
+  height: 698px;
+}
+.uploads-child {
+  top: 44px;
+  left: 4px;
+  border-radius: 15px;
+  background-color: var(--color-gainsboro-100);
+  border: 2px dashed var(--color-black);
+  box-sizing: border-box;
+  width: 582px;
+  height: 334px;
+}
+.digital-dental-records-1-icon,
+.images-1-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 297px;
+  height: 331px;
+  object-fit: cover;
+}
+.images-1-icon {
+  left: 297px;
+  width: 287px;
+}
+
+.add-image,
+.view-image {
+  position: absolute;
+  font-size: 20px;
+  background-color: #1a72ab;
+  border: none;
+  border-radius: 15px;
+
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 20% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 400px;
+}
+
+.add-image {
+  top: 246px;
+  left: 371px;
+  width: 196px;
+  height: 68px;
+}
+.digital-dental-records-1-parent {
+  position: absolute;
+  top: 44px;
+  left: 7px;
+  width: 584px;
+  color: var(--color-white);
+}
+.uploads {
+  position: absolute;
+  height: 331px;
+  top: 729px;
+  left: 48px;
+  width: 591px;
+  height: 378px;
+}
+
+.patients-personal-informations-parent {
+  position: absolute;
+  top: 0;
+  left: -6px;
+  width: 1478px;
+  height: 1156px;
+}
+.patients-personal-informations {
+  position: absolute;
+  top: 290px;
+  left: 378px;
+  width: 1478px;
+  height: 698px;
+  overflow-y: auto;
+  font-size: var(--font-size-xl);
+}
+.admin-page-patient-info {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 1080px;
+  text-align: center;
+  font-size: 48px;
+  color: var(--color-black);
+  font-family: var(--font-poppins);
+}

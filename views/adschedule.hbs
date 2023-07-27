@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style-fdappoint.css">
+    <link rel="stylesheet" href="css/schedule.css">
+     <!-----Icon------>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+
+  <body>
+    {{>adminnav}}
+
+    {{>adsideappoint}}
+
+      <div class="wrapper">
+        <h3>Patient APPN {{appointment.id}}</h3>
+      <form action="/adVerify" method="POST">
+      
+    <input type="hidden" name="id" value="{{appointment.id}}" >
+        <div class="input-box">
+        <div class="name">
+          <input type="text" id="name" name="name"  value="{{appointment.fullName}}" placeholder="Full Name">
+        </div>
+        <div class="age">
+          <input type="email" id="email" name="email"  value="{{appointment.email}}" placeholder="Email">
+        </div>
+        <div class="birthdate">
+            <input type="text" id="mobileNumber" name="mobileNumber"  value="{{appointment.mobileNumber}}" placeholder="Contact">
+        </div>
+        <div class="email">
+            <input type="text" id="dentist" name="dentist"  value="{{appointment.dentist}}" placeholder="Dentist">
+        </div>
+        <div class="number">
+            <input type="text" id="service" name="service"  value="{{appointment.service}}" placeholder="Service">
+        </div>
+        <div class="hmo">
+            <input type="text" id="date" name="date"  value="{{appointment.date}}" placeholder="Date">
+        </div>
+        <div class="procedure">
+            <input type="text" id="time" name="time"  value="{{appointment.time}}" placeholder="Time">
+        </div>
+      {{#if appointment}}
+        <div class="form-group">
+          <input type="submit" class="login-button" value="Confirm">
+        </div>
+        {{else}}
+        <div class="form-group">
+          <input type="submit" class="login-button" value="Confirm" disabled> 
+        </div>
+      {{/if}}
+       </div>
+      </form>
+      
+     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      
+        </body>
+        </html>
