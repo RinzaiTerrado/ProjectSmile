@@ -123,8 +123,9 @@ const db_functions = {
     },
     insert_user: async function (fullName, userType, username, email, mobileNumber,  password, image, verification) {
         //prepares insert statement
+
         sql = `INSERT INTO users(fullName, userType, username, email, mobileNumber,  password, image, verification) VALUES (?,?,?,?,?,?,?,?)`;
-        console.log("inserting to db");
+        console.log("inserting to db + image = " + image);
         db.run(sql,
             [fullName, userType, username, email, mobileNumber, password, image, verification],
             (err)=>{

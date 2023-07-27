@@ -19,21 +19,19 @@
               <h3>Add User Account</h3>
             </div>
           </div>
-            <form  method="POST" action="/adAdd">
                 
+          <form  method="POST" action="/upload" enctype="multipart/form-data">
           <div class="row">
             <div class="col-md-6">
-              <!-- Container for the profile picture and button -->
-              <div id="profile-container">
-                <!-- Display the current profile picture -->
-                <img id="profile-picture" src="profile.jpg">
-      
-                <!-- Input field to select a new profile picture -->
-                <input type="file" id="file-input" accept="image/*">
-      
-                <!-- Button to trigger file selection -->
-                <button id="edit-button">Edit</button>
-              </div>
+
+              	<div class="profile-container">
+                  <input  name="myImage" type="file" id="file" accept="image/*" hidden>
+                  <div class="img-area" id="profile-picture" data-img="" style="">
+                    <i class='bx bxs-cloud-upload icon'></i>
+                  </div>
+                  <a class="select-image" id="edit-button">Select Image</a>
+                </div>
+
             </div>
     
             <!-- Add two columns for the textboxes -->
@@ -95,6 +93,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="javascript/profile image.js"></script>
+    <script src="js/profile image.js"></script>
   </body>
 </html>

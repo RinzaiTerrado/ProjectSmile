@@ -165,7 +165,7 @@ const controller = {
             service: 'Gmail',
             auth:{
                 user: "rinzai_terrado@dlsu.edu.ph",
-                pass: ""
+                pass: "Bigboi!123"
             }
         });
         //check if email is in database
@@ -706,5 +706,6 @@ const controller = {
         const previousPath = parsedURL.pathname;
         res.redirect(previousPath);
     }
+    
 }
 module.exports = controller;

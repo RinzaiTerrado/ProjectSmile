@@ -5,6 +5,7 @@ const dotenv = require(`dotenv`);
 const express = require(`express`);
 const path = require('path');
 const app = express();
+const fileUpload = require(`./controller/upload.js`) ;
 //import handlebars
 const hbs = require('hbs');
 //routes
@@ -36,6 +37,7 @@ app.set('views', path.join(__dirname, 'views'));
 //set the file path containing the partial hbs files
 app.use('/', routes);
 
+app.use(`/`, fileUpload);
 
 app.listen(port, hostname, function () {
     console.log(`Server is running at:`);
