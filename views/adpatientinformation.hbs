@@ -27,7 +27,7 @@
     <div class="info">
     <div class="schedule"> 
       <div class="arrow">
-      <a href=""><i class='bx bx-chevron-left'></i></a></div> 
+      <a href="/adList"><i class='bx bx-chevron-left'></i></a></div> 
      <h2>Patient Information</h2>
   </div>      
   
@@ -36,13 +36,13 @@
     <form >
       <div class="input-box">
       <div class="name">
-        <input type="text" id="name" name="name" required value="{{appointment.[0].fullName}}" placeholder="Full name">
+        <input type="text" id="name" name="name" required value="{{appointment.[0].fullName}}" placeholder="Full name" disabled>
       </div>
       <div class="birthdate">
-          <input type="text" id="mobileNumber" name="mobileNumber" required value="{{appointment.[0].mobileNumber}}" placeholder="Contact">
+          <input type="text" id="mobileNumber" name="mobileNumber" required value="{{appointment.[0].mobileNumber}}" placeholder="Contact" disabled>
       </div>
       <div class="email">
-          <input type="email" id="email" name="email" required value="{{appointment.[0].email}}" placeholder="Email">
+          <input type="email" id="email" name="email" required value="{{appointment.[0].email}}" placeholder="Email" disabled>
       </div>
     </div>
       <div class="records">

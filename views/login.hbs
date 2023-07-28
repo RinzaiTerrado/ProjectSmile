@@ -25,7 +25,7 @@
     <form method="POST" action="/signin">
       <h2>LOG IN</h2>
       <div class="input-box">
-        <input type="text" id="username" name="username" required placeholder="Username">
+        <input type="text" id="email" name="email" required placeholder="Email">
         <i class='bx bxs-user'></i>
       </div>
       <div class="input-box">
@@ -37,6 +37,7 @@
         <input type="submit" class="login-button" value="Login">
       </div>
 
+		            <div  style="color:#FF0000";>{{msg}}<p></div>
       <div class="login-links">
         <div>
           <a href="/fdsignin">Log in as frontdesk</a>

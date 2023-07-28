@@ -16,7 +16,7 @@
         <div class="container mt-4">
           <div class="row">
             <div class="col-md-6">
-              <a href="#" class="back-button">Back</a>
+              <a href="/adManage" class="back-button">Back</a>
               <h3>Edit User Account</h3>
               <form action="/deleteuser" method="POST">
               <input type="hidden" name="id" value="{{user.id}}">
@@ -31,7 +31,7 @@
               <!-- Container for the profile picture and button -->
               	<div class="profile-container">
                   <input  name="myImage" type="file" id="file" accept="image/*" hidden>
-                  <div class="img-area" id="profile-picture" data-img="{{user.image}}" ">
+                  <div class="img-area" id="profile-picture" data-img="{{user.image}}">
                     <i class='bx bxs-cloud-upload icon'></i>
                     <img src="images/profile/{{user.image}}">
                   </div>
@@ -44,24 +44,25 @@
                 <div id="user-details">
               <div class="row">
                 
+              <input type="hidden" name="oldEmail" value="{{user.email}}">
                 <input type="hidden" name="id" value="{{user.id}}">
                 <div class="col-md-6">
                     Name
-                  <input type="text" name="fullName" value="{{user.fullName}}" placeholder="Name">
+                  <input type="text" name="fullName" value="{{user.fullName}}" placeholder="Name" required>
                 </div>
                 <div class="col-md-6">
                     Email
-                  <input type="text" name="email" value="{{user.email}}" placeholder="email">
+                  <input type="text" name="email" value="{{user.email}}" placeholder="email" required>
                 </div>
               </div>
               <div class="row mt-2">
                 <div class="col-md-6">
                     Username
-                  <input type="text" name="username" value="{{user.username}}" placeholder="username">
+                  <input type="text" name="username" value="{{user.username}}" placeholder="username"required>
                 </div>
                 <div class="col-md-6">
                     Contact Number
-                  <input type="text" name="mobileNumber" value="{{user.mobileNumber}}" placeholder="contact">
+                  <input type="text" name="mobileNumber" value="{{user.mobileNumber}}" placeholder="contact"required>
                 </div>
               </div>
               <div class="row mt-2">
@@ -75,8 +76,9 @@
                 </div>
                 <div class="col-md-6">
                     Password
-                  <input type="text" name="password" value="{{user.password}}" placeholder="password">
+                  <input type="text" name="password" value="{{user.password}}" placeholder="password" required>
                 </div>
+		            <div  style="color:#FF0000";>{{msg}}<p></div>
               </div>
             </div>
           </div>          
@@ -84,7 +86,7 @@
     
 
         <div class="button-container">
-            <a  href="/adManage"><button class="cancel-button">Cancel</button></a>
+            <a  href="/adManage" class="cancel-button">Cancel</a>
             <button type="submit"class="save-button">Save</button>
           </div>
 
