@@ -31,11 +31,11 @@ const db_functions = {
         db.run("DROP TABLE users");
         db.run("DROP TABLE appointment");
     },
-    find_userpass: async function (username, password, callback) {
+    find_userpass: async function (email, password, callback) {
         //prepares insert statement
-        sql = `SELECT * FROM users where username = ? AND password = ?`;
+        sql = `SELECT * FROM users where email = ? AND password = ?`;
         db.all(sql,
-            [username,password],
+            [email,password],
             (err, result)=>{
                 if(err) return callback(false);
                 return callback(result);
@@ -165,6 +165,15 @@ const db_functions = {
         sql = `UPDATE users SET fullName = ?, userType = ?, username = ?, email = ?, mobileNumber = ?, password = ?, image = ? WHERE id =?`;
         db.run(sql,
             [fullName, userType, username, email, mobileNumber, password, image, id],
+            (err)=>{
+                if(err) return console.error(err.message);
+        });
+    },
+    update_fullusernoimg: async function (id, fullName, userType, username, email, mobileNumber, password) {
+        //prepares insert statement
+        sql = `UPDATE users SET fullName = ?, userType = ?, username = ?, email = ?, mobileNumber = ?, password = ? WHERE id =?`;
+        db.run(sql,
+            [fullName, userType, username, email, mobileNumber, password, id],
             (err)=>{
                 if(err) return console.error(err.message);
         });

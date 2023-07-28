@@ -9,21 +9,19 @@ const controller = {
         res.render('patient');
     },
     postSignin:function(req,res){
-        var username = req.body.username;
+        var email = req.body.email;
         var password = req.body.password;
-        console.log(username + " " + password);
         
         db_functions.query_users(function(result){
             console.log("list of users")
             console.log(result);
         });
-        var user = db_functions.find_userpass(username,password, function(result){
-            //res.send(result);
+        var user = db_functions.find_userpass(email,password, function(result){
             console.log(result);
             if(result == ""){//no results were found
                 console.log("invalid credentials");
 
-                res.render('login');
+                res.render('login',{msg:'Invalid credentials.'});
             } else {
                 if(result[0].userType == "Admin"){
                     db_functions.insert_log(result[0].email + " has successfully logged in",1,0);
@@ -31,7 +29,7 @@ const controller = {
                     res.redirect('/adList');
                 } else {
                     console.log("invalid credentials");    
-                    res.render('login');
+                    res.render('login',{msg:'Invalid credentials.'});
 
                 }
                 
@@ -56,20 +54,17 @@ const controller = {
         res.render('login-frontdesk');
     },
     postfdSignin:function(req,res){
-        var username = req.body.username;
+        var email = req.body.email;
         var password = req.body.password;
-        console.log(username + " " + password);
         db_functions.query_users(function(result){
             console.log("list of users")
             console.log(result);
         });
-        var user = db_functions.find_userpass(username,password, function(result){
-            //res.send(result);
-            console.log(result);
+        var user = db_functions.find_userpass(email,password, function(result){
             if(result == ""){//no results were found
                 console.log("invalid credentials");
 
-                res.render('login-frontdesk');
+                res.render('login-frontdesk',{msg:'Invalid credentials.'});
             } else {
                 if(result[0].userType == "Frontdesk"){
                     db_functions.insert_log(result[0].email + " has successfully logged in",1,0);
@@ -77,7 +72,7 @@ const controller = {
                     res.redirect('/fdList');
                 } else {
                     console.log("invalid credentials");    
-                    res.render('login-frontdesk');
+                    res.render('login-frontdesk',{msg:'Invalid credentials.'});
 
                 }
                 
@@ -134,15 +129,13 @@ const controller = {
         
     },
     postAppoint:function(req,res){
-        var fullname = req.body.fullname;
-        var email = req.body.email;
-        var mobile = req.body.mobile;
-        var dentist = req.body.dentist;
-        var service = req.body.service;
-        var date = req.body.date;
-        var time = req.body.time;
-
-        //console.log("extracted " + fullname + email + mobile + dentist+service+date+time);
+        var fullname = req.body.fullname.trim();
+        var email = req.body.email.trim();
+        var mobile = req.body.mobile.trim();
+        var dentist = req.body.dentist.trim();
+        var service = req.body.service.trim();
+        var date = req.body.date.trim();
+        var time = req.body.time.trim();
         db_functions.insert_appointment(fullname,email,mobile,dentist,service,date,time);
         db_functions.insert_log(fullname + " added an appointment",1,1);
 
@@ -171,13 +164,8 @@ const controller = {
         //check if email is in database
         
         var user = db_functions.find_user(email, async function(result){
-            //res.send(result);
-            console.log(result);
             if(result == ""){//no results were found
-                console.log(email);
-                console.log("no results found");
-
-                res.render('forgetpassword');
+                res.render('forgetpassword', {msg:'no users found'});
             } else {
                 //if true
                 if(result[0].verification == '0'){
@@ -192,13 +180,14 @@ const controller = {
                     console.log("verification sent: " + code);
                     db_functions.update_user(email, "verification", code);
                 }
-                console.log(result[0].verification);
-                db_functions.query_users(function(result){
-                    console.log("list of users");
+                console.log("users verification value is = "+result[0].verification);
+                db_functions.find_user(email, function(result){
                     console.log("verification = " + verification);
                     console.log(result[0].verification);
                     if(verification != result[0].verification && verification != ""){
+                        console.log("error")
                         res.render('forgetpassword');//resets if false
+
                     } else {
                         if(newpass != ""){
                             db_functions.update_user(email,"password",newpass);
@@ -243,7 +232,6 @@ const controller = {
                     db_functions.query_consolefd(function(result){
                         var notifs ={};
                         notifs = result;
-                        console.log("notifs" + notifs);
                         res.render('appointment',{appointment,notifs});
                     });
                 });
@@ -291,7 +279,6 @@ const controller = {
             if(result[0].userType == "Frontdesk"){
 		//is frontdesk account
                 const id = req.body.id
-                console.log("id = " + id);
                 db_functions.find_appointment(id,function(result){
                     var appointment = result[0];
                     
@@ -386,7 +373,6 @@ const controller = {
                 db_functions.query_uniqueappointments(function(result){
                     var patient = {};
                     patient = result;
-                    console.log("list of appointments")
 
                     db_functions.query_consolefd(function(result){
                         var notifs ={};
@@ -405,13 +391,13 @@ const controller = {
             if(result[0].userType == "Frontdesk"){
 		//is frontdesk account
                 const id = req.body.id;
-                const name = req.body.name;
-                const email = req.body.email;
-                const num = req.body.mobileNumber;
-                const dentist = req.body.dentist;
-                const service = req.body.service;
-                const date = req.body.date;
-                const time = req.body.time;
+                const name = req.body.name.trim();
+                const email = req.body.email.trim();
+                const num = req.body.mobileNumber.trim();
+                const dentist = req.body.dentist.trim();
+                const service = req.body.service.trim();
+                const date = req.body.date.trim();
+                const time = req.body.time.trim();
                 db_functions.update_appointment(id, "approved", "1");
                 db_functions.updatefull_appointment(id, name, email, num, dentist, service, date, time);
                 db_functions.insert_log("id " + id + " has been verified by front desk",1,1);
@@ -489,7 +475,6 @@ const controller = {
 		//is frontdesk account
                 const name = req.body.fullName.trim();
                 
-                console.log("name = "+ name);
                 db_functions.find_userhistory
                 //res.render('fdpatientinformation');
                 db_functions.find_userhistory(name,function(result){
@@ -525,7 +510,6 @@ const controller = {
             if(result[0].userType == "Admin"){
 		//is frontdesk account
                 const id = req.body.id
-                console.log("id = " + id);
                 db_functions.find_appointment(id,function(result){
                     var appointment = result[0];
                     db_functions.query_console(function(result){
@@ -581,13 +565,8 @@ const controller = {
             if(result[0].userType == "Admin"){
 		//is frontdesk account
                 const email = req.body.email.trim();
-                console.log("email = " + email);
                 db_functions.find_user(email,function(result){
                     var user = result[0];
-                    console.log("user found");
-                    console.log(result[0]);
-                    console.log("rendering");
-                    
                     db_functions.query_console(function(result){
                         var notifs ={};
                         notifs = result;
@@ -625,7 +604,6 @@ const controller = {
                 const email = req.body.email.trim();
                 const password = req.body.password.trim();
                 const image = "null";
-                //console.log(fullName+ userType+ username+ email+ mobileNumber+ password+ image)
                 db_functions.insert_user(fullName, userType, username, email, mobileNumber, password, image);
                 db_functions.insert_log("New user was created " + fullName, 1,0);
                 
@@ -654,7 +632,6 @@ const controller = {
             if(result[0].userType == "Admin"){
 		//is frontdesk account
                 const id = req.body.id;
-                console.log("id = " + id);
                 db_functions.delete_user(id);
                 db_functions.insert_log("user " +id+" was deleted",1,0);
                 res.redirect('/adManage');
