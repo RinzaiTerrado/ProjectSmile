@@ -9,13 +9,15 @@ const controller = {
         res.render('patient');
     },
     postSignin:function(req,res){
+        //requests the variables from the form
         var email = req.body.email;
         var password = req.body.password;
-        
+        //queries the users and views it in console
         db_functions.query_users(function(result){
             console.log("list of users")
             console.log(result);
         });
+        //queries if users email and password matches
         var user = db_functions.find_userpass(email,password, function(result){
             console.log(result);
             if(result == ""){//no results were found
@@ -23,11 +25,14 @@ const controller = {
 
                 res.render('login',{msg:'Invalid credentials.'});
             } else {
+                //if user and pass matches
                 if(result[0].userType == "Admin"){
+                    //checks if user is admin
                     db_functions.insert_log(result[0].email + " has successfully logged in",1,0);
                     db_functions.login(result[0].id, "Admin");
                     res.redirect('/adList');
                 } else {
+                    //if not invalid
                     console.log("invalid credentials");    
                     res.render('login',{msg:'Invalid credentials.'});
 
@@ -36,30 +41,26 @@ const controller = {
             }
                 
         });
-       //res.render('error');
         
     },
     getSignin:function(req,res){
+        //renders signin
         res.render('login');
-        //console.error(err.message);
-        /*
-        if(email){//renders if success
-            res.render('admin');
-        } else {//if not found in database render error
-            res.render('error');
-        }
-*/
     },
     getfdSignin:function(req,res){
+        //renders signin
         res.render('login-frontdesk');
     },
     postfdSignin:function(req,res){
+        //requests values from the form
         var email = req.body.email;
         var password = req.body.password;
+        //queries users to console
         db_functions.query_users(function(result){
             console.log("list of users")
             console.log(result);
         });
+        //checks if user and password matches in database
         var user = db_functions.find_userpass(email,password, function(result){
             if(result == ""){//no results were found
                 console.log("invalid credentials");
@@ -67,10 +68,12 @@ const controller = {
                 res.render('login-frontdesk',{msg:'Invalid credentials.'});
             } else {
                 if(result[0].userType == "Frontdesk"){
+                    //if user is frontdesk continue
                     db_functions.insert_log(result[0].email + " has successfully logged in",1,0);
                     db_functions.login(result[0].id, "Frontdesk");
                     res.redirect('/fdList');
                 } else {
+                    //else invalid
                     console.log("invalid credentials");    
                     res.render('login-frontdesk',{msg:'Invalid credentials.'});
 
@@ -79,56 +82,9 @@ const controller = {
             }
                 
         });
-       //res.render('error');
-    },
-    postSignup:function(req,res){
-        var first_name = req.body.fname;
-        var last_name = req.body.lname;
-        var username = req.body.username;
-        var email = req.body.email;
-        var password = req.body.password;
-        //check if username/email exists
-        var user = db_functions.checkuser(email,username, function(result){
-            if (result == ""){// username and email not found  in database 
-                console.log("original username/email");
-            } else {
-                
-            }
-        });
-        var user = db_functions.find_userpass(email,password, function(result){
-            //res.send(result);
-            if(result == ""){//no results were found
-                console.log("invalid credentials");
-
-                res.render('error');
-            } else {
-                console.log(result[0].email);
-                res.render('index');
-                
-            }
-                
-        });
-        
-    },
-    getSignup:function(req,res){
-        var email = req.body.email;
-        var password = req.body.password;
-        var user = db_functions.find_userpass(email,password, function(result){
-            //res.send(result);
-            if(result == ""){//no results were found
-                console.log("invalid credentials");
-
-                res.render('error');
-            } else {
-                console.log(result[0].email);
-                res.render('index');
-                
-            }
-                
-        });
-        
     },
     postAppoint:function(req,res){
+        //requests the values from form
         var fullname = req.body.fullname.trim();
         var email = req.body.email.trim();
         var mobile = req.body.mobile.trim();
@@ -136,6 +92,7 @@ const controller = {
         var service = req.body.service.trim();
         var date = req.body.date.trim();
         var time = req.body.time.trim();
+        //inserts the appointment to the database
         db_functions.insert_appointment(fullname,email,mobile,dentist,service,date,time);
         db_functions.insert_log(fullname + " added an appointment",1,1);
 
@@ -145,15 +102,17 @@ const controller = {
        res.render('forgetpassword');
     },
     postForgot: async function(req,res){
+        //requests the values from form
         const email = req.body.email;
         const verification = req.body.verification;
-        const newpass = req.body.newpass;
-        //send email
+        const newpass = req.body.newpass;        
+        //random number generator, for verification code
         const code = Math.floor(Math.random() * 999999);
-        //random number generator
+        //message of the email containing the verification code
         const message = `
         <h1>Verification</h1>
         ` + code;
+        //transporter for sending emails
         const transporter = nodeMailer.createTransport({
             service: 'Gmail',
             auth:{
@@ -161,13 +120,13 @@ const controller = {
                 pass: "jmhggewqnzietiad"
             }
         });
-        //check if email is in database
-        
+        //check if email is in database        
         var user = db_functions.find_user(email, async function(result){
             if(result == ""){//no results were found
                 res.render('forgetpassword', {msg:'no users found'});
             } else {
                 //if true
+                //if user havent send a verification code, it will send a verification code email
                 if(result[0].verification == '0'){
                     console.log("sending email");
                     const info = await transporter.sendMail({
@@ -181,6 +140,7 @@ const controller = {
                     db_functions.update_user(email, "verification", code);
                 }
                 console.log("users verification value is = "+result[0].verification);
+                //this segment checks if user's verification code matches
                 db_functions.find_user(email, function(result){
                     console.log("verification = " + verification);
                     console.log(result[0].verification);
@@ -200,18 +160,18 @@ const controller = {
             }
                 
         });
-       //res.render('forgetpassword');
     },
     postfdPatient:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Frontdesk"){
-		//is frontdesk account
+		        //is frontdesk account
                 const name = req.body.fullName;
                 console.log("name = "+ name);
                 db_functions.find_userhistory
+                //queries the user history
                 db_functions.find_userhistory(name,function(result){
                     var appointment = result;
-                     
+                     //queries the notification
                     db_functions.query_consolefd(function(result){
                         var notifs ={};
                         notifs = result;
@@ -219,6 +179,7 @@ const controller = {
                     });
                 });
             } else {                
+                //if not frontdesk
                 res.redirect('/fdsignin')
             }
         });
@@ -242,9 +203,7 @@ const controller = {
     },
     postfdAppoint:function(req,res){
         db_functions.get_login(function(result){
-            if(result[0].userType == "Frontdesk"){
-		//is frontdesk account
-        
+            if(result[0].userType == "Frontdesk"){        
                 db_functions.query_consolefd(function(result){
                     var notifs ={};
                     notifs = result;
@@ -277,7 +236,6 @@ const controller = {
     postfdSched:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Frontdesk"){
-		//is frontdesk account
                 const id = req.body.id
                 db_functions.find_appointment(id,function(result){
                     var appointment = result[0];
@@ -297,8 +255,6 @@ const controller = {
     getfdSched:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Frontdesk"){
-		//is frontdesk account
-        
                 db_functions.query_consolefd(function(result){
                     var notifs ={};
                     notifs = result;
@@ -326,7 +282,6 @@ const controller = {
     postfdHistory:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Frontdesk"){
-		//is frontdesk account
                 db_functions.query_consolefd(function(result){
                     var notifs ={};
                     notifs = result;
@@ -341,7 +296,6 @@ const controller = {
     getfdHistory:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Frontdesk"){
-		//is frontdesk account
                 db_functions.query_consolefd(function(result){
                     var notifs ={};
                     notifs = result;
@@ -355,7 +309,6 @@ const controller = {
     postfdList:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Frontdesk"){
-		//is frontdesk account
             db_functions.query_consolefd(function(result){
                 var notifs ={};
                 notifs = result;
@@ -369,7 +322,6 @@ const controller = {
     getfdList:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Frontdesk"){
-		//is frontdesk account
                 db_functions.query_uniqueappointments(function(result){
                     var patient = {};
                     patient = result;
@@ -389,7 +341,6 @@ const controller = {
     postfdVerify:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Frontdesk"){
-		//is frontdesk account
                 const id = req.body.id;
                 const name = req.body.name.trim();
                 const email = req.body.email.trim();
@@ -412,7 +363,6 @@ const controller = {
     getadList:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Admin"){
-		        //is frontdesk account
                 db_functions.query_uniqueappointments(function(result){
                     var patient = {};
                     patient = result;
@@ -430,7 +380,6 @@ const controller = {
     getadAppoint:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Admin"){
-		//is frontdesk account
                 db_functions.query_appointments(function(result){
                     var appointment = {};
                     appointment = result;                    
@@ -448,7 +397,6 @@ const controller = {
     getadManage:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Admin"){
-		//is frontdesk account
                 db_functions.query_users(function(result){
                     var users = {};      
                     users = result;   
@@ -467,11 +415,8 @@ const controller = {
     postadPatient:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Admin"){
-		//is frontdesk account
                 const name = req.body.fullName.trim();
                 
-                db_functions.find_userhistory
-                //res.render('fdpatientinformation');
                 db_functions.find_userhistory(name,function(result){
                     var appointment = result;
                      
@@ -489,7 +434,6 @@ const controller = {
     getadPatient:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Admin"){
-		//is frontdesk account
                     db_functions.query_console(function(result){
                         var notifs ={};
                         notifs = result;
@@ -503,7 +447,6 @@ const controller = {
     postadSched:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Admin"){
-		//is frontdesk account
                 const id = req.body.id
                 db_functions.find_appointment(id,function(result){
                     var appointment = result[0];
@@ -521,7 +464,6 @@ const controller = {
     getadSched:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Admin"){
-		//is frontdesk account
                     db_functions.query_console(function(result){
                         var notifs ={};
                         notifs = result;
@@ -535,7 +477,6 @@ const controller = {
     postadVerify:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Admin"){
-		//is frontdesk account
                 const id = req.body.id;
                 const name = req.body.name.trim();
                 const email = req.body.email.trim();
@@ -558,7 +499,6 @@ const controller = {
     postadMan:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Admin"){
-		//is frontdesk account
                 const email = req.body.email.trim();
                 db_functions.find_user(email,function(result){
                     var user = result[0];
@@ -576,8 +516,6 @@ const controller = {
     getadMan:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Admin"){
-		//is frontdesk account
-        
                 db_functions.query_console(function(result){
                     var notifs ={};
                     notifs = result;
@@ -591,7 +529,6 @@ const controller = {
     postadAdd:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Admin"){
-		//is frontdesk account
                 const mobileNumber = req.body.mobileNumber.trim();
                 const fullName = req.body.fullName.trim();
                 const userType = req.body.userType.trim();
@@ -611,7 +548,6 @@ const controller = {
     getadAdd:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Admin"){
-		//is frontdesk account
                 db_functions.query_console(function(result){
                     var notifs ={};
                     notifs = result;
@@ -625,7 +561,6 @@ const controller = {
     postdeleteuser:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Admin"){
-		//is frontdesk account
                 const id = req.body.id;
                 db_functions.delete_user(id);
                 db_functions.insert_log("user " +id+" was deleted",1,0);
@@ -638,7 +573,6 @@ const controller = {
     postedituser:function(req,res){
         db_functions.get_login(function(result){
             if(result[0].userType == "Admin"){
-		//is frontdesk account
                 const id = req.body.id;
                 const mobileNumber = req.body.mobileNumber.trim();
                 const fullName = req.body.fullName.trim();
@@ -654,8 +588,6 @@ const controller = {
                 res.redirect('/signin')
             }
         });
-        //db_functions.create_table();
-        
         
     },
     postadlogout:function(req,res){
