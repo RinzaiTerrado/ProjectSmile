@@ -446,11 +446,6 @@ const controller = {
         });
     },
     getadManage:function(req,res){
-        //db_functions.insert_user("Rinzai Dharma Terrado", "Admin", "Rinzai", "Terradorinzai@gmail.com", "09222825663", "123", "null", "0");
-        
-        //db_functions.insert_user("Rinzai Terrado", "Admin", "Rinzai2", "Terradorinzai2@gmail.com", "0922282263", "1223", "null", "0");
-        //db_functions.create_table();
-        //db_functions.logout();
         db_functions.get_login(function(result){
             if(result[0].userType == "Admin"){
 		//is frontdesk account
