@@ -157,8 +157,8 @@ const controller = {
         const transporter = nodeMailer.createTransport({
             service: 'Gmail',
             auth:{
-                user: "rinzai_terrado@dlsu.edu.ph",
-                pass: "Bigboi!123"
+                user: "[email]",
+                pass: "[password]"
             }
         });
         //check if email is in database
@@ -171,7 +171,7 @@ const controller = {
                 if(result[0].verification == '0'){
                     console.log("sending email");
                     const info = await transporter.sendMail({
-                        from: 'Rinzai <rinzai_terrado@dlsu.edu.ph>',
+                        from: 'Project Smile <[email]>',
                         to:email,
                         subject: 'Verification',
                         html: message,
