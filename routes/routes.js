@@ -9,9 +9,6 @@ app.get('/signin',controller.getSignin);
 //signinfrontdesk
 app.post('/fdsignin', controller.postfdSignin);
 app.get('/fdsignin', controller.getfdSignin);
-//signup
-app.post('/signup', controller.postSignup);
-app.get('/signup',controller.getSignup);
 //apointment
 app.post('/appoint', controller.postAppoint);
 //forgot
